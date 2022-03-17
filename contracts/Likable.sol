@@ -6,7 +6,7 @@ contract Likable {
     uint256 public likes;
 
     function remove() public {
-        require(likes > 0, 'Number of likes are 0');
+        require(likes > 0, "Number of likes are 0");
         likes--;
     }
 
