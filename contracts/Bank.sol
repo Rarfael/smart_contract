@@ -1,4 +1,5 @@
 //SPDX-License-Identifier: MIT
+
 pragma solidity 0.7.0;
 
 contract Bank {
@@ -13,10 +14,11 @@ contract Bank {
     }
 
     function withdrawBalance() public {
-        (bool success, ) = msg.sender.call{value: userBalance[msg.sender]}(
+        uint256 newUserBalance = userBalance[msg.sender];
+        userBalance[msg.sender] = 0;
+        (bool success, ) = msg.sender.call{value: newUserBalance}(
             "Withdraw started"
         );
         require(success, "Transfer failed.");
-        userBalance[msg.sender] = 0;
     }
 }
