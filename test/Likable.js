@@ -2,7 +2,6 @@ const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
 describe("Bank", function () {
-  let Bank, bank, owner;
   beforeEach(async () => {
     Likable = await ethers.getContractFactory("Likable");
     likable = await Likable.deploy();
